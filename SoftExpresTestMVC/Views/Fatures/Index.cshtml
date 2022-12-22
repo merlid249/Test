@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Fature>
+
+@{
+    ViewData["Title"] = "Fature Actions";
+}
+@using (Html.BeginForm("Index", "Fatures", FormMethod.Get))
+{
+    @Html.TextBox("searching")
+    <input type="submit" value="Search" />
+   
+}
+
+
+<div class="text-white">
+    
+</div>
+<div class="row">
+    <div class="">
+        <table class="table">
+            <thead>
+                <tr class="text-middle">
+                    <th>@Html.DisplayNameFor(model => model.Emertimi)</th>
+
+                    <th>@Html.DisplayNameFor(model => model.Njesia)</th>
+
+                    <th>@Html.DisplayNameFor(model => model.DatasKdences)</th>
+
+                    <th>@Html.DisplayNameFor(model => model.Cmimi)</th>
+
+                    <th> @Html.DisplayNameFor(model => model.Lloji) </th>
+
+                    <th>@Html.DisplayNameFor(model => model.KaTvsh)</th>
+
+                    <th>@Html.DisplayNameFor(model => model.Tipi)</th>
+
+                    <th>@Html.DisplayNameFor(model => model.Barkod)</th>
+                    <th><a asp-asp-controller="Fatures" asp-action="Create" class="btn btn-success"><i class=" bi bi-plus-circle"> Shto Fature </i></a></th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @if (Model.Count() == 0)
+                {
+                    <tr>
+                        <td colspan="3" style="color:red"> No items found </td>
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td class="align-middle">
+                                @Html.DisplayFor(modelItem => item.Emertimi)
+                            </td>
+                            <td class="align-middle">
+                                @Html.DisplayFor(modelItem => item.Njesia)
+                            </td>
+                            <td class="align-middle">
+                                @Html.DisplayFor(modelItem => item.DatasKdences)
+                            </td>
+                            <td class="align-middle">
+                                @Html.DisplayFor(modelItem => item.Cmimi)
+                            </td>
+                            <td class="align-middle">
+                                @Html.DisplayFor(modelItem => item.Lloji)
+                            </td>
+                            <td class="align-middle">
+                                @Html.DisplayFor(modelItem => item.KaTvsh)
+                            </td>
+                            <td class="align-middle">
+                                @Html.DisplayFor(modelItem => item.Tipi)
+                            </td>
+                            <td class="align-middle">
+                                @Html.DisplayFor(modelItem => item.Barkod)
+
+                            <td class="align-middle">
+                                <a class="btn btn-outline-primary " asp-action="Edito" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i>Edito </a> |
+
+                                <a class="btn btn-danger text-white" id="btnDelete" asp-action="" asp-route-id="@item.Id"><i class="bi bi-trash"></i>Fshi </a>
+                               
+                            </td>
+                        
+                        </tr>
+                        
+                            
+                        
+                    }
+                   
+                }
+            </tbody>
+          
+                        
+        </table>
+
+    </div>
+</div> 
+<script>
+    document.getElementById("btnDelete").onclick = function() {
+      // Perform delete action here
+    };
+</script>

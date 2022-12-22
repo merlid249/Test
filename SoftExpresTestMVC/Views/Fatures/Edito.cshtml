@@ -1,0 +1,76 @@
+﻿@model Fature
+
+@{
+    ViewData["Title"] = "Add Fature";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>
+            <h1>Shto Fature</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Edito">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group text-left">
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <label asp-for="Emertimi" class="control-label" style="font-size: 1.2em; margin-right: 1em;"></label>
+                        <input asp-for="Emertimi" class="form-control" style="margin-left: 5em;" />
+                        <span asp-validation-for="Emertimi" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <label asp-for="Njesia" class="control-label" style=" font-size: 1.2em; margin-right: 1em;"></label>
+                        <input asp-for="Njesia" class="form-control" style="margin-left: 6.5em;" />
+                        <span asp-validation-for="Njesia" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <label asp-for="DatasKdences" class="control-label" style=" font-size: 1.2em; margin-right: 1em;"></label>
+                        <input asp-for="DatasKdences" class="form-control" style="margin-left: 4em;" />
+                        <span asp-validation-for="DatasKdences" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <label asp-for="Cmimi" class="control-label" style=" font-size: 1.2em; margin-right: 1em;"></label>
+                        <input asp-for="Cmimi" class="form-control" style="margin-left: 6.5em;" />
+                        <span asp-validation-for="Cmimi" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <label asp-for="Lloji" class="control-label" style="font-size: 1.2em; margin-right: 1em;"></label>
+                        <div style="margin-left: 8.5em;" class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="Lloji" name="Lloji" value="I Importuar">
+                            <label class="form-check-label" for="Lloji" style=" margin-right: 1em;">I</label>
+                            <input class="form-check-input" type="radio" id="Lloji" name="Lloji" value="Vendi">
+                            <label class="form-check-label" for="Lloji">V</label>
+                        </div>
+                        <span asp-validation-for="Lloji" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <label asp-for="KaTvsh" class="control-label" style=" font-size: 1.2em; style="margin-right: 1em;"></label>
+                        <input asp-for="KaTvsh" class="form-control" style="margin-left: 6.5em;" />
+                        <span asp-validation-for="KaTvsh" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <label asp-for="Tipi" class="control-label" style="font-size: 1.2em; margin-right: 1em;"></label>
+                        <select asp-for="Tipi" class="form-control" style="margin-left: 8em;">
+                            <option value="value1">Ushqimore</option>
+                            <option value="value2">Bulmet</option>
+                            <option value="value3">Pije</option>
+                            <option value="value4">Embelsire</option>
+                        </select>
+                        <span asp-validation-for="Tipi" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <label asp-for="Barkod" class="control-label" style=" font-size: 1.2em; style="margin-right: 1em;"></label>
+                        <input asp-for="Barkod" class="form-control" style="margin-left: 7em;" />
+                        <span asp-validation-for="Barkod" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display: flex;">
+                        <input type="submit" value="Ruaj" class="btn btn-outline-success float-right" style=" margin-right: 3em;" />
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
