@@ -17,12 +17,12 @@ namespace SoftExpresTestMVC.Controllers
         {
             _service = service;
         }
-    
+
         //Serach  // All
         [HttpGet]
         public async Task<IActionResult> Index(string searching)
         {
-           
+
             var data = await _service.GetAllFatura(searching);
 
             return View(data);
@@ -45,12 +45,12 @@ namespace SoftExpresTestMVC.Controllers
         }
 
         //Update
-      
+
         [HttpGet]
 
-        public  IActionResult Edito(int id)
+        public IActionResult Edito(int id)
         {
-            var edito =  _service.GetFature(id);
+            var edito = _service.GetFature(id);
             if (edito == null) return View("Not Found");
             return View(edito);
             return View();
@@ -64,6 +64,14 @@ namespace SoftExpresTestMVC.Controllers
                 return View(fature);
             }
             _service.UpdateAsync(id, fature);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Fshi(int id)
+        {
+            await _service.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
     }

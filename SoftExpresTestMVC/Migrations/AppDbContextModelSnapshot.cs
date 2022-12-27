@@ -56,7 +56,7 @@ namespace SoftExpresTestMVC.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Fatures");
+                    b.ToTable("Fatures", (string)null);
                 });
 #pragma warning restore 612, 618
         }

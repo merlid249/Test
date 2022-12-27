@@ -76,9 +76,9 @@
                                 @Html.DisplayFor(modelItem => item.Barkod)
 
                             <td class="align-middle">
-                                <a class="btn btn-outline-primary " asp-action="Edito" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i>Edito </a> |
+                                <a class="btn btn-outline-primary " asp-action="Fshi" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i>Edito </a> |
 
-                                <a class="btn btn-danger text-white" id="btnDelete" asp-action="" asp-route-id="@item.Id"><i class="bi bi-trash"></i>Fshi </a>
+                                <a class="btn btn-danger text-white" onclick="deleteItem(@item.Id)"><i class="bi bi-trash"></i>Fshi </a>
                                
                             </td>
                         
@@ -97,7 +97,18 @@
     </div>
 </div> 
 <script>
-    document.getElementById("btnDelete").onclick = function() {
-      // Perform delete action here
-    };
+    function deleteItem(id) {
+    // Show a confirmation dialog
+    if (confirm("Konfirmo fshirjen e fatures ?")) {
+        // Send an AJAX request to the delete action of your controller
+        $.ajax({
+                url: '/Fatures/Fshi/' + id,
+            type: 'POST',
+            success: function(result) {
+                // Show a success message
+                alert("Fatira i fshi me sukses !");
+            }
+        });
+    }
+}
 </script>
