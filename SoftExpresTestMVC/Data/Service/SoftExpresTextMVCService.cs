@@ -17,7 +17,7 @@ namespace SoftExpresTestMVC.Data.Service
         }
 
 
-        public async Task<IEnumerable<Fature>> GetAllFatura(string text)
+           public async Task<IEnumerable<Fature>> GetAllFatura(string text)
         {
             var allFature = await _context.Fatures.Where(x => x.Emertimi.StartsWith(text) || text == null).ToListAsync();
             return allFature;
