@@ -43,5 +43,14 @@ namespace SoftExpresTestMVC.Data.Service
             await _context.SaveChangesAsync();
 
         }
+        public async Task DeleteAsync(int id)
+        {
+            var fDelete= await _context.Fatures.FirstOrDefaultAsync(x => x.Id == id);
+            if (fDelete != null)
+            {
+                _context.Fatures.Remove(fDelete);
+            }
+            await _context.SaveChangesAsync();
+        }
     }
 }
